@@ -1,0 +1,36 @@
+{
+  "name": "sparLiang",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A site for the SparLiang family",
+  "author": "Kevin Sparling",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/gatsby-plugin": "^3.0.5",
+    "@chakra-ui/react": "^2.2.9",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "emotion-theming": "^11.0.0",
+    "framer-motion": "^7.2.1",
+    "gatsby": "^4.21.1",
+    "gatsby-plugin-chakra-ui": "^0.1.5",
+    "gatsby-plugin-image": "^2.21.0",
+    "gatsby-plugin-sharp": "^4.21.0",
+    "gatsby-source-filesystem": "^4.21.1",
+    "gatsby-source-strapi": "^2.0.0",
+    "gatsby-transformer-remark": "^5.21.0",
+    "gatsby-transformer-sharp": "^4.21.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
