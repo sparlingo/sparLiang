@@ -34,7 +34,7 @@ export default function PostList({articles}) {
               Journal Entries
             </Heading>
           </Box> */}
-          {articles.map((article) => (
+          {/* {articles.map((article) => (
             <Center py={6} key={article.id}>
               <Box
                 maxW={'495px'}
@@ -86,7 +86,7 @@ export default function PostList({articles}) {
               
             </Center>
               
-            ))}
+            ))} */}
         </Flex>
       </Container>
     </>

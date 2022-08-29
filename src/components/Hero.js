@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Stack, Flex, Box, Heading, Text, Image, useColorModeValue } from "@chakra-ui/react"
 
-import Blob from './Blob';
+import Blob from './Blob'
 
 const Hero = () => {
   return (
@@ -42,7 +42,8 @@ const Hero = () => {
           justify={'center'}
           align={'center'}
           position={'relative'}
-          w={'full'}>
+          w={'full'}
+        >
           <Blob
             w={'150%'}
             h={'150%'}
@@ -60,13 +61,13 @@ const Hero = () => {
             width={'full'}
             overflow={'hidden'}>
               <Image
-              alt={'Hero Image'}
-              fit={'cover'}
-              align={'center'}
-              w={'100%'}
-              h={'100%'}
-              src={
-                'https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_960_720.jpg'
+                alt={'Hero Image'}
+                fit={'cover'}
+                align={'center'}
+                w={'100%'}
+                h={'100%'}
+                src={
+                  'https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_960_720.jpg'
               }
             />
           </Box>
