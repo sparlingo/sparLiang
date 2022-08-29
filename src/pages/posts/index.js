@@ -27,6 +27,7 @@ export default function PostList() {
       allStrapiArticle {
         nodes {
           id
+          strapi_id
           title
           description
         }
@@ -45,7 +46,7 @@ export default function PostList() {
             gap={3}
           >
             {articles.map((article) => (
-              <Center py={2} key={article.id}>
+              <Center py={2} key={article.strapi_id}>
                 <Box
                   maxW={'495px'}
                   w={'full'}
