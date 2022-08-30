@@ -39,6 +39,7 @@ module.exports = {
     },
     {
       resolve: `@chakra-ui/gatsby-plugin`
-    }
+    },
+    `gatsby-plugin-image`
   ],
 }

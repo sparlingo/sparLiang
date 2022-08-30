@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import {
   Avatar,
   Box,
@@ -22,6 +22,7 @@ export default function PostList() {
           strapi_id
           title
           description
+          slug
         }
       }
     }
@@ -44,6 +45,9 @@ export default function PostList() {
           >
             {articles.map((article) => (
               // <Center >
+              <Link
+                to={`/article/${article.slug}`}
+              >
                 <Box py={2} key={article.strapi_id}
                   maxW={'495px'}
                   // minH={'500px'}
@@ -92,7 +96,7 @@ export default function PostList() {
                     </Stack>
                   </Stack>
                 </Box>
-              // </Center>
+              </Link>
             ))}
           </SimpleGrid>
         </Container>
