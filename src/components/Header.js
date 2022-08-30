@@ -68,7 +68,6 @@ const Header = (props) => {
       wrap="wrap"
       w="100%"
       mb={0}
-      pt={1}
       p={7}
       bg={["grey.500", "primary.500", "transparent", "transparent"]}
       color={["grey.800", "grey.100", "primary.700", "primary.700"]}
@@ -93,7 +92,7 @@ const Header = (props) => {
           align="center"
           justify={["center", "space-between", "flex-end", "flex-end"]}
           direction={["column", "row", "row", "row"]}
-          pt={[4, 4, 0, 0]}
+          pt={[3, 3, 0, 0]}
         >
          <MenuItem to={"/"}>
            Home

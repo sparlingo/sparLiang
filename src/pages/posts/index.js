@@ -3,20 +3,12 @@ import { useStaticQuery, graphql } from "gatsby"
 import {
   Avatar,
   Box,
-  Center,
   Container,
-  Divider,
-  Flex,
-  Grid,
-  GridItem,
   Heading,
-  HStack,
   Image,
-  Spacer,
+  SimpleGrid,
   Stack,
   Text,
-  useColorModeValue,
-  VStack,
 } from '@chakra-ui/react'
 
 import Layout from '../../components/Layout'
@@ -38,29 +30,35 @@ export default function PostList() {
   return (
     <>
       <Layout>
-        <Container maxW='6xl'>
-          <Heading as='h2'>
+        <Container maxW='7xl'>
+          <Heading 
+            as='h2'
+            mb={3}
+          >
             Journal Entries
           </Heading>
-          <Flex  
-            gap={3}
+          <SimpleGrid
+            columns={3}
+            spacing={8}
+            pb={6}
           >
             {articles.map((article) => (
-              <Center py={2} key={article.strapi_id}>
-                <Box
+              // <Center >
+                <Box py={2} key={article.strapi_id}
                   maxW={'495px'}
+                  // minH={'500px'}
                   w={'full'}
                   bg={'white'}
                   boxShadow={'2xl'}
                   rounded={'md'}
-                  p={3}
+                  p={2}
                   overflow={'hidden'}>
                   <Box
-                    h={'210px'}
+                    h={'200px'}
                     bg={'gray.100'}
                     mt={-4}
                     mx={-6}
-                    mb={2}
+                    mb={"88px"}
                     pos={'relative'}>
                     <Image
                       src={
@@ -94,9 +92,9 @@ export default function PostList() {
                     </Stack>
                   </Stack>
                 </Box>
-              </Center>
+              // </Center>
             ))}
-          </Flex>
+          </SimpleGrid>
         </Container>
       </Layout>
     </>
