@@ -17,7 +17,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
             cover {
               alternativeText
-              localfile {
+              localFile {
                 url
               }
             }

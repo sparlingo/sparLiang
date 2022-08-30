@@ -32,6 +32,8 @@ const strapiConfig = {
 module.exports = {
   siteMetadata: {
     siteUrl: `https://sparliang.netlify.app`,
+    title: `SparLiang`,
+    description: `A blog/gallery for the SparLiang family`
   },
   plugins: [
     {
@@ -41,8 +43,16 @@ module.exports = {
     {
       resolve: `@chakra-ui/gatsby-plugin`
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content`,
+        name: `content`
+      }
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-mdx`,
   ],
 }
