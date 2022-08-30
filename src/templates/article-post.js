@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import {
   Box,
   Heading,
@@ -12,13 +12,13 @@ import Layout from "../components/Layout"
 
 const ArticlePage = ({ data }) => {
   const article = data.strapiArticle
-
+  //const coverImage = getImage(article.url)
   // const seo = {
   //   metaTitle: article.title,
   //   metaDescription: article.description,
   //   shareImage: article.cover,
   // }
-
+  // console.log(article.cover.localfile.url)
   return (
     <>
       <Layout as="article">
@@ -30,10 +30,7 @@ const ArticlePage = ({ data }) => {
           <Text>
             {article.description}
           </Text>
-          <GatsbyImage
-            image={getImage(article?.cover?.localFile.url)}
-            alt={article?.cover?.alternativeText}
-          />
+          {/* <GatsbyImage src={coverImage} /> */}
           {/* <main>
             <BlocksRenderer blocks={article.blocks || []} />
           </main> */}
@@ -51,18 +48,6 @@ export const pageQuery = graphql`
       slug
       title
       description
-      # blocks {
-      #   ...Blocks
-      # }
-      cover {
-        alternativeText
-        localFile {
-          url
-          # childImageSharp {
-          #   gatsbyImageData
-          # }
-        }
-      }
     }
   }
 `

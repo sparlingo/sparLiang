@@ -15,6 +15,7 @@ const strapiConfig = {
           blocks: {
             populate: "*",
           },
+          author: "*"
         },
       },
     },
@@ -40,6 +41,8 @@ module.exports = {
     {
       resolve: `@chakra-ui/gatsby-plugin`
     },
-    `gatsby-plugin-image`
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 }
