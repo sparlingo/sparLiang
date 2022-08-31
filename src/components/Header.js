@@ -100,7 +100,7 @@ const Header = (props) => {
           <MenuItem to={"/gallery"}>
             Gallery
           </MenuItem>
-          <MenuItem to={"/posts"}>
+          <MenuItem to={"/journal"}>
             Journal
           </MenuItem>
           <MenuItem isLast>

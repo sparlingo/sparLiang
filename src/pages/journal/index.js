@@ -55,19 +55,24 @@ export default function PostList({ data }) {
                     alt='Filler Image'
                   />
                 </Box>
-                <Stack>
-                  <Heading
-                    color={'black'}
-                    fontSize={'2xl'}
-                    fontFamily={'body'}
-                    py={1}
-                  >
-                    {frontmatter.title}
-                  </Heading>
-                  <Text color={'gray.500'}>
-                    {frontmatter.date}
-                  </Text>
-                </Stack>
+                <Link to={`/journal/${frontmatter.slug}`}>
+                  <Stack>
+                    <Heading
+                      color={'black'}
+                      fontSize={'2xl'}
+                      fontFamily={'body'}
+                      py={1}
+                    >
+                      {frontmatter.title}
+                    </Heading>
+                    <Text color={'gray.500'}>
+                      {frontmatter.date}
+                    </Text>
+                    <Text>
+                      {excerpt}
+                    </Text>
+                  </Stack>
+                </Link>
                 <Stack mt={3} direction={'row'} spacing={4} align={'center'}>
                   <Avatar
                     src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
@@ -92,7 +97,7 @@ export const query = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         id
-        excerpt(pruneLength: 250)
+        excerpt(pruneLength: 100)
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
