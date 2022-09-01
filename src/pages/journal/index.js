@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, Link } from "gatsby"
+import { GatsbyImage } from 'gatsby-plugin-image'
 import {
   Avatar,
   Box,
   Container,
   Heading,
-  Image,
   SimpleGrid,
   Stack,
   Text,
@@ -14,7 +14,7 @@ import {
 import Layout from '../../components/Layout'
 
 export default function PostList({ data }) {
-  
+
   return (
     <>
       <Layout>
@@ -41,19 +41,18 @@ export default function PostList({ data }) {
                 p={2}
                 overflow={'hidden'}>
                 <Box
-                  h={'200px'}
+                  // h={'200px'}
                   bg={'gray.100'}
                   mt={-4}
                   mx={-6}
-                  mb={"88px"}
-                  pos={'relative'}>
-                  <Image
-                    src={
-                      'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-                    }
-                    layout={'fill'}
-                    alt='Filler Image'
+                  mb={4}
+                  pos={'relative'}
+                >
+                  <GatsbyImage 
+                    image={frontmatter.heroImage.childImageSharp.gatsbyImageData} 
+                    alt="A Picture"
                   />
+
                 </Box>
                 <Link to={`/journal/${frontmatter.slug}`}>
                   <Stack>
@@ -66,7 +65,7 @@ export default function PostList({ data }) {
                       {frontmatter.title}
                     </Heading>
                     <Text color={'gray.500'}>
-                      {frontmatter.date}
+                      {frontmatter.description}
                     </Text>
                     <Text>
                       {excerpt}
@@ -79,8 +78,8 @@ export default function PostList({ data }) {
                     alt={'Author'}
                   />
                   <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                    <Text fontWeight={600}>Achim Rolle</Text>
-                    <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
+                    <Text fontWeight={600}>Kevin Sparling</Text>
+                    <Text color={'gray.500'}>{frontmatter.date}</Text>
                   </Stack>
                 </Stack>
               </Box>
@@ -100,8 +99,14 @@ export const query = graphql`
         excerpt(pruneLength: 100)
         frontmatter {
           title
+          description
           date(formatString: "YYYY MMMM Do")
           slug
+          heroImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+        }
         }
       }
     }
