@@ -31,7 +31,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://sparliang.netlify.app`,
+    siteUrl: `https://sparling.netlify.app`,
     title: `SparLiang`,
     description: `A blog/gallery for the SparLiang family`
   },
@@ -50,5 +50,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-mdx`,
+    `gatsby-plugin-netlify-cms`
   ],
 }
