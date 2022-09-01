@@ -46,10 +46,19 @@ module.exports = {
         name: `content`
       }
     },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200
+            }
+          }
+        ]
         // defaultLayouts: {
         //   // This entry template will switch the page template based on
         //   // a frontmatter value provided in the CMS, allowing users to
@@ -60,7 +69,6 @@ module.exports = {
     },
     
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms`,
   ],

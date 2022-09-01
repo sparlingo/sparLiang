@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { MDXProvider } from "@mdx-js/react"
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import {
   Container,
@@ -11,8 +10,8 @@ import {
 
 import Layout from '../../components/Layout'
 
-const BlogPost = ({ data, children }) => {
-  const hero_img = getImage(data.mdx.frontmatter.heroImage.childImageSharp.gatsbyImageData)
+const BlogPost = ({ data: {mdx}, children }) => {
+  const hero_img = getImage(mdx.frontmatter.heroImage.childImageSharp.gatsbyImageData)
 
   return (
     <Layout>
@@ -24,13 +23,13 @@ const BlogPost = ({ data, children }) => {
         >
           <GridItem colSpan={3}>
             <Heading as="h2">
-              {data.mdx.frontmatter.title}
+              {mdx.frontmatter.title}
             </Heading>
-            <p>{data.mdx.frontmatter.date}</p>
+            <p>{mdx.frontmatter.date}</p>
             <GatsbyImage image={hero_img} alt="A Picture" />
           </GridItem>
           <GridItem colSpan={5}>
-            <MDXProvider>{children}</MDXProvider>
+            {children}
           </GridItem>
         </Grid>
       </Container>
