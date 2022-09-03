@@ -27,9 +27,9 @@ export default function GalleryPage({ data }) {
   const photos = []
   data.allCloudinaryMedia.edges.map(({ node }) => (
     photos.push({
-      src: node.cloudinaryData.url,
-      width: node.cloudinaryData.width,
-      height: node.cloudinaryData.height
+      src: node.gatsbyImageData.images.fallback.src,
+      width: node.gatsbyImageData.width,
+      height: node.gatsbyImageData.height,
     }) 
   ))
 
@@ -61,46 +61,15 @@ export default function GalleryPage({ data }) {
   )
 }
 
-// export default function GalleryPage() {
-//   const data = useStaticQuery(graphql`
-//     query CloudinaryImages {
-//       allCloudinaryMedia {
-//         edges {
-//           node {
-//             secure_url
-//           }
-//         }
-//       }
-//     }
-//   `)
-//   const clImages = data.allCloudinaryMedia.edges
-
-//   return (
-//     <>
-//       <Layout>
-//         <Container>
-//             <Heading>Image Gallery</Heading>
-//               {clImages.map((image, index) => (
-//                 <div key={`${index}-cl`}>
-//                   <Image src={image.node.secure_url} />
-//                 </div>
-//               ))}
-//         </Container>
-//       </Layout>
-//     </>
-//   )
-// }
-
 export const query = graphql`
   query GalleryQuery {
     allCloudinaryMedia {
       edges {
         node {
-          cloudinaryData {
-            url
-            height
-            width
-          }
+          gatsbyImageData(
+            width: 1000
+            placeholder: BLURRED
+          )
         }
       }
     }
