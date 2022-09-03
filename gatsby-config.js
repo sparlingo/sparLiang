@@ -2,33 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
-// https://strapi.io/blog/build-a-static-blog-with-gatsby-and-strapi
-// const strapiConfig = {
-//   apiURL: process.env.STRAPI_API_URL,
-//   accessToken: process.env.STRAPI_TOKEN,
-//   collectionTypes: [
-//     {
-//       singularName: "article",
-//       queryParams: {
-//         populate: {
-//           cover: "*",
-//           blocks: {
-//             populate: "*",
-//           },
-//           author: "*"
-//         },
-//       },
-//     },
-//     {
-//       singularName: "author",
-//     },
-//     {
-//       singularName: "category",
-//     },
-//   ],
-//   singleTypes: [],
-// }
-
 module.exports = {
   siteMetadata: {
     siteUrl: `https://sparling.netlify.app`,
@@ -47,11 +20,34 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        maxResults: 100,
+        tags: true,
+        prefix: `gatsby`
+      },
+    },
+    {
+      resolve: `gatsby-transformer-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        uploadFolder: 'gatsby',
+        uploadSourceInstanceNames: ['images'],
+        transformTypes: [`CloudinaryMedia`]
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
         path: `${__dirname}/content/gallery`,
-        name: `images`
-      }
+      },
     },
     `gatsby-plugin-sharp`,
     {
@@ -62,16 +58,10 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200
+              maxWidth: 800
             }
           }
         ]
-        // defaultLayouts: {
-        //   // This entry template will switch the page template based on
-        //   // a frontmatter value provided in the CMS, allowing users to
-        //   // choose different template layouts.
-        //   // default: require.resolve(`./src/page-templates/cms-entry.template.js`)
-        // },
       },
     },
     

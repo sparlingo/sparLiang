@@ -22,6 +22,7 @@
     "@emotion/styled": "^11.10.0",
     "@mdx-js/mdx": "^2.1.3",
     "@mdx-js/react": "^2.1.3",
+    "dotenv": "^16.0.2",
     "emotion-theming": "^11.0.0",
     "framer-motion": "^7.2.1",
     "gatsby": "^4.21.1",
@@ -31,12 +32,15 @@
     "gatsby-plugin-netlify-cms": "^6.22.0",
     "gatsby-plugin-sharp": "^4.22.0",
     "gatsby-remark-images": "^6.22.0",
+    "gatsby-source-cloudinary": "^0.2.0",
     "gatsby-source-filesystem": "^4.21.1",
+    "gatsby-transformer-cloudinary": "^3.0.0",
     "gatsby-transformer-remark": "^5.22.0",
     "gatsby-transformer-sharp": "^4.22.0",
     "netlify-cms-app": "^2.15.72",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-images": "^1.2.0-beta.7",
     "react-photo-gallery": "^8.0.0"
   },
   "devDependencies": {}
