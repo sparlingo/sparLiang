@@ -33,6 +33,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/content/gallery`,
+      },
+    },
+    {
       resolve: `gatsby-source-cloudinary`,
       options: {
         cloudName: process.env.CLOUDINARY_CLOUD_NAME,
@@ -54,13 +61,6 @@ module.exports = {
         uploadSourceInstanceNames: ['images'],
         transformTypes: [`CloudinaryMedia`]
       }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/content/gallery`,
-      },
     },
     `gatsby-plugin-sharp`,
     {
