@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import {
   Container,
   Heading,
+  Spinner,
 } from '@chakra-ui/react'
 import Gallery from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
@@ -40,26 +41,30 @@ export default function GalleryPage({ data }) {
           <Heading as="h2">
             Photo Gallery
           </Heading>
-          <Gallery photos={photos} onClick={openLightbox} />
-          <ModalGateway>
-            {viewerIsOpen? (
-              <Modal onClose={closeLightbox}>
-                <Carousel
-                  currentIndex={currentImage}
-                  views={photos.map(x => ({
-                    ...x,
-                    srcset: x.srcSet,
-                    caption: x.title
-                  }))}
-                />
-              </Modal>
-            ): null}
-          </ModalGateway>
+          <React.Suspense fallback={Spinner}>
+            <Gallery photos={photos} onClick={openLightbox} />
+            <ModalGateway>
+              {viewerIsOpen? (
+                <Modal onClose={closeLightbox}>
+                  <Carousel
+                    currentIndex={currentImage}
+                    views={photos.map(x => ({
+                      ...x,
+                      srcset: x.srcSet,
+                      caption: x.title
+                    }))}
+                  />
+                </Modal>
+              ): null}
+            </ModalGateway>
+          </React.Suspense>
         </Container>
       </Layout>
     </>
   )
 }
+
+export const Head = () => <title>Gallery Page</title>
 
 export const query = graphql`
   query GalleryQuery {

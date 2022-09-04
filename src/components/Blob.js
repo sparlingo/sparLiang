@@ -17,7 +17,7 @@ const Blob = (props) => {
         fill="currentColor"
       />
     </Icon>
-  );
-};
+  )
+}
 
 export default Blob
