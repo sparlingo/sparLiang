@@ -10,6 +10,10 @@ import {
   DrawerBody,
   DrawerFooter,
   Flex,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
   Input,
   Link,
   Text,
@@ -117,35 +121,55 @@ const Header = (props) => {
             >
               Get in Touch
             </Button>
-            <Drawer
-              isOpen={isOpen}
-              placement='right'
-              size='lg'
-              onClose={onClose}
-              finalFocusRef={btnRef}
-            >
-              <DrawerOverlay />
-              <DrawerContent>
-                <DrawerCloseButton />
-                <DrawerHeader>Send us an email</DrawerHeader>
-                <DrawerBody>
-                  <Textarea
-                    size="lg"
-                    rows={14}
-                    placeholder='Type here...' 
-                  />
-                  <Input
-                    placeholder="Enter your email..."
-                  />
-                </DrawerBody>
-                <DrawerFooter>
-                  <Button variant='outline' mr={3} onClick={onClose}>
-                    Cancel
-                  </Button>
-                  <Button colorScheme='blue'>Send</Button>
-                </DrawerFooter>
-              </DrawerContent>
-            </Drawer>
+            <FormControl isRequired>
+              <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="form-name" value="contact" />
+                <Drawer
+                  isOpen={isOpen}
+                  placement='right'
+                  size='lg'
+                  onClose={onClose}
+                  finalFocusRef={btnRef}
+                >
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>Send us an email</DrawerHeader>
+                    <DrawerBody>
+                      
+                      <FormLabel>Your Message</FormLabel>
+                      <Textarea
+                        size="lg"
+                        rows={15}
+                        name="body"
+                      />
+
+                      <FormLabel>Your Email</FormLabel>
+                      <Input 
+                        name="email" 
+                      />
+
+                    </DrawerBody>
+                    <DrawerFooter>
+                      <Button 
+                        variant='outline' 
+                        mr={3} 
+                        onClick={onClose}
+                      >
+                        Cancel
+                      </Button>
+                      <Button 
+                        colorScheme='blue'
+                        type='submit'
+                      >
+                        Send
+                      </Button>
+                    </DrawerFooter>
+                  </DrawerContent>
+                </Drawer>
+              </form>
+            </FormControl>
           </MenuItem>
         </Flex>
       </Box>

@@ -38,7 +38,10 @@ export default function GalleryPage({ data }) {
     <>
       <Layout>
         <Container maxW={"6xl"}>
-          <Heading as="h2">
+          <Heading 
+            as="h2"
+            mb={3}
+          >
             Photo Gallery
           </Heading>
           <React.Suspense fallback={Spinner}>
