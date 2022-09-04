@@ -18,8 +18,10 @@ import {
   Link,
   Text,
   Textarea,
-  useDisclosure 
+  useDisclosure, 
 } from "@chakra-ui/react"
+import { Formik, Field } from "formik"
+
 import Logo from "./Logo"
 
 const MenuItem = ({ children, isLast, to, ...rest }) => {
@@ -121,55 +123,101 @@ const Header = (props) => {
             >
               Get in Touch
             </Button>
-            <FormControl isRequired>
-              <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
-                <input type="hidden" name="bot-field" />
-                <input type="hidden" name="form-name" value="contact" />
-                <Drawer
-                  isOpen={isOpen}
-                  placement='right'
-                  size='lg'
-                  onClose={onClose}
-                  finalFocusRef={btnRef}
-                >
-                  <DrawerOverlay />
-                  <DrawerContent>
-                    <DrawerCloseButton />
-                    <DrawerHeader>Send us an email</DrawerHeader>
-                    <DrawerBody>
-                      
-                      <FormLabel>Your Message</FormLabel>
-                      <Textarea
-                        size="lg"
-                        rows={15}
-                        name="body"
-                      />
-
-                      <FormLabel>Your Email</FormLabel>
-                      <Input 
-                        name="email" 
-                      />
-
-                    </DrawerBody>
-                    <DrawerFooter>
-                      <Button 
-                        variant='outline' 
-                        mr={3} 
-                        onClick={onClose}
-                      >
-                        Cancel
-                      </Button>
+            <Drawer
+              isOpen={isOpen}
+              placement='right'
+              size='lg'
+              onClose={onClose}
+              finalFocusRef={btnRef}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Send us an email</DrawerHeader>
+                <DrawerBody>
+                  <Formik
+                    initialValues={{
+                      body: '',
+                      email: '',
+                    }}
+                    onSubmit={
+                      (values, actions) => {
+                        fetch("/", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                          body: encodeURI({ "form-name": "contact-demo", ...values })
+                        })
+                        .then(() => {
+                          alert('Thanks for your email')
+                          actions.resetForm()
+                        })
+                        .catch(() => {
+                          alert('Error')
+                        })
+                        .finally(() => actions.setSubmitting(false))
+                      }
+                    }
+                    validate={values => {
+                      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                      const errors = {}
+                      if(!values.body) {
+                        errors.body = 'Message is required'
+                      }
+                      if(!values.email || !emailRegex.test(values.email)) {
+                        errors.email = 'Valid Email Required'
+                      }
+                      return errors
+                    }}
+                  >
+                    <form method="post" 
+                      netlify-honeypot="bot-field" 
+                      data-netlify="true" 
+                      name="contact"
+                    >
+                      <input type="hidden" name="bot-field" />
+                      <input type="hidden" name="form-name" value="contact" />
+                      <FormControl isRequired>
+                        <FormLabel>Your Message</FormLabel>
+                        <Textarea
+                          size="lg"
+                          rows={15}
+                          name="body"
+                          id="body"
+                          type="text"
+                        />
+                        <FormErrorMessage name="body" />
+                      </FormControl>
+                      <FormControl  mb={5} isRequired>
+                        <FormLabel>Your Email</FormLabel>
+                        {/* <Input 
+                          name="email"
+                          id="email"
+                          type="email"
+                        /> */}
+                        <Input name="email" />
+                        <FormErrorMessage name="email" />
+                      </FormControl>
                       <Button 
                         colorScheme='blue'
+                        size="lg"
                         type='submit'
                       >
                         Send
                       </Button>
-                    </DrawerFooter>
-                  </DrawerContent>
-                </Drawer>
-              </form>
-            </FormControl>
+                    </form>
+                  </Formik>
+                </DrawerBody>
+                <DrawerFooter>
+                  <Button 
+                    variant='outline' 
+                    mr={3} 
+                    onClick={onClose}
+                  >
+                    Cancel
+                  </Button>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
           </MenuItem>
         </Flex>
       </Box>
