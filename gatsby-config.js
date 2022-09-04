@@ -1,5 +1,6 @@
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+  // path: `.env.${process.env.NODE_ENV}`
+  path: `.env`
 })
 
 module.exports = {
@@ -13,20 +14,15 @@ module.exports = {
       resolve: `@chakra-ui/gatsby-plugin`
     },
     {
-      resolve: 'gatsby-plugin-favicons',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        logo: './src/images/favicon.ico',
-        appName: 'SparLiang',
-        background: '#000',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          yandex: false,
-          windows: false
-        }
+        name: `SparLiang`,
+        short_name: `SL`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `./src/images/sparliang.png`
       }
     },
     {
