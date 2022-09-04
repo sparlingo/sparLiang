@@ -81,5 +81,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms`,
+    "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 }
