@@ -48,7 +48,8 @@ module.exports = {
         resourceType: `image`,
         maxResults: 100,
         tags: true,
-        prefix: `gatsby`
+        prefix: `gatsby`,
+        context: true
       },
     },
     {

@@ -20,7 +20,7 @@ import {
   Textarea,
   useDisclosure, 
 } from "@chakra-ui/react"
-import { Formik, Field } from "formik"
+import { Formik } from "formik"
 
 import Logo from "./Logo"
 
@@ -145,7 +145,7 @@ const Header = (props) => {
                         fetch("/", {
                           method: "POST",
                           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                          body: encodeURI({ "form-name": "contact", ...values })
+                          body: encodeURI({ "form-name": "contact", ...values }),
                         })
                         .then(() => {
                           alert('Thanks for your email')
