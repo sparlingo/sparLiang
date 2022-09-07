@@ -2872,6 +2872,13 @@
   resolved "https://registry.yarnpkg.com/@petamoriken/float16/-/float16-3.6.6.tgz#641f73913a6be402b34e4bdfca98d6832ed55586"
   integrity sha512-3MUulwMtsdCA9lw8a/Kc0XDBJJVCkYTQ5aGd+///TbfkOMXoOGAzzoiYKwPEsLYZv7He7fKJ/mCacqKOO7REyg==
 
+"@piducancore/gatsby-source-cloudinary-metadata@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@piducancore/gatsby-source-cloudinary-metadata/-/gatsby-source-cloudinary-metadata-1.0.3.tgz#911beecec3f0799a027a1e1f31a5c75c433238b6"
+  integrity sha512-gyImCaU/pmtWqQxqyogLqsbVydd6gge/hG6RXVIUzZfrSr9c/eIqRIhXjISIzFqpU4F8pW7dm5k/PeAUaMzrAg==
+  dependencies:
+    cloudinary "^1.23.0"
+
 "@pmmmwh/react-refresh-webpack-plugin@^0.5.7":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.5.7.tgz#58f8217ba70069cc6a73f5d7e05e85b458c150e2"
@@ -4784,7 +4791,7 @@ cloudinary-core@^2.10.2:
   resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.13.0.tgz#b59f90871b6c708c3d0735b9be47ac08181c57fb"
   integrity sha512-Nt0Q5I2FtenmJghtC4YZ3MZZbGg1wLm84SsxcuVwZ83OyJqG9CNIGp86CiI6iDv3QobaqBUpOT7vg+HqY5HxEA==
 
-cloudinary@^1.30.0, cloudinary@^1.30.1:
+cloudinary@^1.23.0, cloudinary@^1.30.0, cloudinary@^1.30.1:
   version "1.31.0"
   resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-1.31.0.tgz#f43baa266d7c86cbaed8ab733aca6b80a114b671"
   integrity sha512-+A/x0gsmzBya4KPabY6Vmj1d1hxjI2kEhbKy52bahLFhDc5xiMhClWbzurYfFA83OUbwLQGZpjnW+Fwu1Kq3kQ==

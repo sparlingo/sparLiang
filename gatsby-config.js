@@ -52,6 +52,17 @@ module.exports = {
         context: true
       },
     },
+    // {
+    //   resolve: `@piducancore/gatsby-source-cloudinary-metadata`,
+    //   options: {
+    //     cloud_name: process.env.CLOUDINARY_CLOUD_NAME, // required
+    //     api_key: process.env.CLOUDINARY_API_KEY, // required
+    //     api_secret: process.env.CLOUDINARY_API_SECRET, // required
+    //     max_results: 100, // optional, default: 10
+    //     prefix: `gatsby`, // optional
+    //     type: `upload`, // required if prefix param specified above, otherwise optional
+    //   },
+    // },
     {
       resolve: `gatsby-transformer-cloudinary`,
       options: {
