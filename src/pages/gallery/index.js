@@ -75,7 +75,7 @@ export const query = graphql`
       edges {
         node {
           gatsbyImageData(
-            width: 1000
+            width: 800
             placeholder: BLURRED
           )
         }
